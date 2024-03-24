@@ -1,0 +1,50 @@
+# Rat game choices on google! Made this with mom. Completed this in 4ish hours.
+
+choice = int(input('''
+You close the door behind you. You are holding a suitcase. 
+You paws are a bit shaky. In front of you there is a sign 
+with two arrows - one says "Rodent City" the other says 
+"Cathedral" Which do you choose?
+
+Rodent City [1] or Cathedral [2]?\n'''))
+
+if choice == 1:
+    city_chosen = int(input('''
+    You head in the direction of the city. 
+    This was always your dream! Although,
+    admittedly, its quite a far trip. 
+    Walk or take the bus?
+    Walk [1] or Take the Bus [2]?\n'''))
+    print(city_chosen)
+    if city_chosen == 1:
+        cat_death = "Oh no! A gang of cats spotted you and pounced at the first opportunity! You lose."
+        print(cat_death)
+    elif city_chosen == 2:
+        taxi_ending = "You arrived safe and sound in the city of your dreams! Congratulations, you win!"
+        print(taxi_ending)
+
+elif choice != 1:
+    cathedral_chosen = int(input('''
+    You rush to the cathedral, nervous yet excited at the 
+    thought of marrying your life-long best friend and first 
+    love. You get inside just in time, and finally its time -- 
+    the question arises - "...do you take this woman..." - you 
+    begin sweating. Is this the end of your dreams of seeing the 
+     world? "...in sickness and in health..." Does this mean 
+     you'll HAVE to settle down and be locked in one location 
+     forever? "...for richer or poorer..." Would she come with 
+     you if you changed your mind? "...for as long as you both 
+     shall live?" This is it... no more time to think. Say "I do?"
+     I DO [1] or ... [2]?\n'''))
+    print(cathedral_chosen)
+    if cathedral_chosen == 1:
+        i_do = '''
+        You look into the eyes of your love, take a deep breath, and say 'I do.'
+        All of your stress melts away. Congratulations, you win!'''
+        print(i_do)
+    elif cathedral_chosen == 2:
+        i_cant = '''
+        You're trembling so badly that its unbearable! "I CANT DO THIS," you shout.\n 
+        You run out of the cathedral just as a group of cats were passing by. 
+        They attack you, immediately. You lose.'''
+        print(i_cant)
