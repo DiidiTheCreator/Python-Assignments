@@ -1,0 +1,8 @@
+# First assignment after learning about the print function
+
+print("Welcome to the band name generator app!")
+print("Just answer the next few questions and you will have a great band name!")
+name1 = input("What city did you grow up in?\n")
+name2 = input("What is the name of your pet?\n")
+
+print("Your new band name is " + (name1 + ' ' + name2) + "!")
