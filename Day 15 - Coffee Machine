@@ -1,0 +1,115 @@
+MENU = {
+    "espresso": {
+        "ingredients": {
+            "water": 50,
+            "coffee": 18,
+        },
+        "cost": 1.5,
+    },
+    "latte": {
+        "ingredients": {
+            "water": 200,
+            "milk": 150,
+            "coffee": 24,
+        },
+        "cost": 2.5,
+    },
+    "cappuccino": {
+        "ingredients": {
+            "water": 250,
+            "milk": 100,
+            "coffee": 24,
+        },
+        "cost": 3.0,
+    }
+}
+
+resources = {
+    "water": 300,
+    "milk": 200,
+    "coffee": 100,
+}
+
+power = "on"
+money = 0.0
+coins_inserted = []
+
+print("COFFEE MACHINE")
+print("Espresso = $1.50  Latte = $2.50  Cappuccino = $3.00\nEspresso [E]  Latte [L]  Cappuccino [C]\nPenny=1 Nickel=5 Dime=10 Quarter=25 Dollar=100\n")
+
+while power == "on":
+
+    choice = (input("Insert coins!\n")).lower()
+    if choice == "1":
+        coins_inserted.append(.01)
+    if choice == "5":
+        coins_inserted.append(.05)
+    if choice == "10":
+        coins_inserted.append(.1)
+    if choice == "25":
+        coins_inserted.append(.25)
+    if choice == "100":
+        coins_inserted.append(1.00)
+    money = 0
+    for i in coins_inserted:
+        money += i
+
+    print(f"You've inserted ${money}.")
+
+    def enough_resources(w, c, m):
+        if resources["water"] >= w:
+            if resources["coffee"] >= c:
+                if resources["milk"] >= m:
+                    return True
+                else:
+                    print("You dont have enough milk!")
+                    return False
+            else:
+                print("You dont have enough coffee!")
+                return False
+        else:
+            print("You dont have enough water!")
+            return False
+
+    if choice == "off":
+        print("Powering off")
+        break
+    if choice == "report":
+        print("This is the report")
+        print(resources)
+    elif choice == "e":
+        if money >= 1.50:
+            print("1 Espresso coming right up!")
+            if enough_resources(50, 18, 0) is True:
+                resources["water"] -= 50
+                resources["coffee"] -= 18
+                money -= 1.50
+                print(f"Your remaining money is {money}")
+            else:
+                print("Operation failed!")
+        else:
+            print("Not enough money!")
+    elif choice == "l":
+        if money >= 2.50:
+            print("1 latte coming right up!")
+            if enough_resources(200, 24, 150) is True:
+                resources["water"] -= 250
+                resources["milk"] -= 150
+                money -= 2.50
+                print(f"Your remaining money is {money}")
+            else:
+                print("Operation failed!")
+        else:
+            print("Not enough money!")
+    elif choice == "c":
+        if money >= 3.00:
+            print("1 cappuccino coming right up!")
+            if enough_resources(250, 24, 100) is True:
+                resources["water"] -= 50
+                resources["coffee"] -= 18
+                money -= 3.00
+                print(f"Your remaining money is {money}")
+            else:
+                print("Operation failed!")
+        else:
+            print("Not enough money!")
