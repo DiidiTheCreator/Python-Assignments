@@ -1,0 +1,67 @@
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+import random
+
+print("Welcome to the rock, paper, scissors game! Are you ready?")
+my_roll = int(input("You're playing against COMPUTER. What will you roll?\n Rock [0] , Paper [1] , Scissors [2]\n"))
+computer_roll = random.randint(0,2)
+
+if my_roll == 0:
+    print("You drew ROCK")
+    print(rock)
+if my_roll == 1:
+    print("You drew PAPER")
+    print(paper)
+if my_roll == 2:
+    print("You drew SCISSORS")
+    print(scissors)
+
+if computer_roll == 0:
+    print("COMPUTER drew ROCK")
+    print(rock)
+if computer_roll == 1:
+    print("COMPUTER drew PAPER")
+    print(paper)
+if computer_roll == 2:
+    print("COMPUTER drew SCISSORS")
+    print(scissors)
+
+# Rock beats Scissors
+# Scissors beats paper
+# Paper beats rock
+
+if my_roll > 2:
+    print("You typed an invalid number. You lose!")
+elif my_roll == computer_roll:
+    print("Draw!")
+elif (my_roll < computer_roll) and (computer_roll != 2):
+    print("You win!")
+elif (my_roll > computer_roll) and (computer_roll != 0):
+    print("You win!")
+else :
+    print("You lose!")
