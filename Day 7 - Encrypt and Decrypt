@@ -28,7 +28,7 @@ shift = 0
 
 print(mail_img)
 print("Welcome to Secret Messages!\n\n Please only type unclassified information into this program, "
-      "and avoid using\n punctuation aside from periods and commas. Let's begin!\n")
+      "and avoid using\n punctuation for the time being. Let's begin!\n")
 
 while quit_session is False:
     while direction_is_valid is False:
