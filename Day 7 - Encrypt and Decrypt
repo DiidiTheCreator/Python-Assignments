@@ -1,22 +1,94 @@
 
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+mail_img = """
+         __________________
+        |\                /|
+        | \              / | 
+        | /\____________/\ | 
+        |/                \| 
+        |__________________|  """
+lock_top = """     .--------.
+    / .------.  .
+   | |        | |
+  _| |________| |_
+.' |_|        |_| '.
+'._____ ____ _____.'
+|     .'____'.     |
+'.__.'.'    '.'.__.' """
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
+lock_bottom = """|   '.'.____.'.'   |
+'.____'.____.'____.'
+'.________________.' """
 
-def encrypt(text, shift):
+direction_is_valid = False
+shift_is_valid = False
+quit_session = False
+method = ""  # can only be encrypt or decrypt
+shift = 0
 
-# TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.
-    #e.g.
-    #plain_text = "hello"
-    #shift = 5
-    #cipher_text = "mjqqt"
-    #print output: "The encoded text is mjqqt"
+print(mail_img)
+print("Welcome to Secret Messages!\n\n Please only type unclassified information into this program, "
+      "and avoid using\n punctuation aside from periods and commas. Let's begin!\n")
 
-    ##HINT: How do you get the index of an item in a list:
-    #https://stackoverflow.com/questions/176918/finding-the-index-of-an-item-in-a-list
+while quit_session is False:
+    while direction_is_valid is False:
+        direction = input("Type 'E' to encrypt, type 'D' to decrypt:\n").lower()
+        if direction != "e":
+            if direction != "d":
+                print("Invalid input.")
+            else:
+                method = direction
+                break
+        else:
+            method = direction
+            break
 
-    ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
+    while shift_is_valid is False:
+        try:
+            shuffle_int = int(input("Type the shift number:\n"))
+            shift = shuffle_int
+            break
+        except ValueError:
+            print("Only numbers are accepted!")
 
-#TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
+    text = input("Type your message:\n").lower()
+    jumble = []
+
+    if method == "e":
+        for i in text:
+            if i == " ":
+                i = " "
+                jumble.append(i)
+            else:
+                index = alphabet.index(i)  # identify line value of each letter
+                if index + shift > len(alphabet)-1:
+                    temp_shift = ((index + shift) - len(alphabet))
+                    jumble.append(alphabet[temp_shift])
+                else:
+                    new_val = int(index) + int(shift)  # add to that value by the shift value
+                    jumble.append(alphabet[new_val])
+        print(lock_top)
+        print(''.join(jumble))  # combines each individual string together with no particular criteria, as indicated by ''
+        print(lock_bottom)
+    elif method == "d":
+        for i in text:
+            if i == " ":
+                i = " "
+                jumble.append(i)
+            else:
+                index = alphabet.index(i)  # identify line value of each letter
+                new_val = int(index) - int(shift)  # add to that value by the shift value
+                jumble.append(alphabet[new_val])
+        print(lock_top)
+        print(''.join(jumble))
+        print(lock_bottom)
+    else:  # if the user types something other than "e" or "d" for the method input.
+        print("Input Error")
+
+    # OPTION TO LEAVE THE SESSION AFTER ENCRYPTING OR DECRYPTING.
+    quit_option = input("Would you like to go again? Y/N\n").lower()
+    if quit_option == "n":
+        print("Thank you for participating!")
+        break
+    else:
+        print("Okay! Lets continue.")
