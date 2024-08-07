@@ -1,6 +1,6 @@
 
 ############### Bug list #####################
-
+# Needs play testing, I KNOW there are bugs!
 ###################################
 
 import random
