@@ -1,5 +1,5 @@
-height = float(input("What is your height in inches?"))
-weight = int(input("What is your weight in pounds?"))
+height = float(input("What is your height in inches? "))
+weight = int(input("What is your weight in pounds? "))
 bmi_output = ((weight/(height*height)) * 703)
 
 if bmi_output < 18:
