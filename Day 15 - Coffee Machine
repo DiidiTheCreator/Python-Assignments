@@ -1,3 +1,5 @@
+#TODO: Play with adding a GUI to this someday!
+
 MENU = {
     "espresso": {
         "ingredients": {
