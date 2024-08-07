@@ -3,6 +3,8 @@
 # Total of bill, percentage of tip desired, and number of people splitting the bill desired!
 # Utilizes inputs, conversions, f-strings, concatenations, and subscripting
 
+print("Welcome to the TIP CALCULATOR!")
+
 raw_bill_total = input("What is the total of your bill?\n$")
 conv_bill_total = float(raw_bill_total)
 raw_percentage = int(input("How much would you like to tip for the service?\n 10 12 15\n"))
