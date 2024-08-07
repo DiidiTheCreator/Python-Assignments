@@ -71,7 +71,8 @@ logo = '''
 print(logo)
 
 end_of_game = False
-word_list = ["ardvark", "baboon", "camel", "snake", "lizard", "kitten", "squirrel", "llama", "jaguar", "ostrich"]
+word_list = ["ardvark", "baboon", "camel", "snake", "lizard", "kitten", "squirrel", "llama", "jaguar", "ostrich", 
+             "tiger", "hippo", "turtle"]
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 lives = 6
