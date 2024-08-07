@@ -1,4 +1,5 @@
 # Rat game choices on google! Made this with mom. Completed this in 4ish hours.
+# TO-DO: CREATE A CATCH ALL FOR IF INPUTS ARE NOT THE EXPECTED INPUTS.
 
 choice = int(input('''
 You close the door behind you. You are holding a suitcase. 
